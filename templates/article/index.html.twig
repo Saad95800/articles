@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles{% endblock %}
+
+{% block body %}
+{% if notification is not null %}
+    <div class="alert {{type_notif}}">{{ notification }}</div>
+{% endif %}
+<div class="container">
+    <div class="d-flex justify-content-between">
+            <h1>Articles</h1>
+            <a href="{{ path('add_article') }}" class="btn btn-success h-75">Ajouter</a>
+    </div>
+    
+    <div class="row">
+        {% for article in articles %}
+            <div class="col-sm-6 col-md-4 mb-3">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ article.title }}</h5>
+                        <p class="card-text">
+                            {{ article.body|slice(1, 100) }}
+                            {% if article.body|length > 100 %}
+                            ...
+                            {% endif %}
+                        </p>
+                        <a href="{{ path('edit_article', {id_article: article.id}) }}" class="card-link">Modifier</a>
+                        <a href="{{ path('view_article', {id_article: article.id})}}" class="card-link">Voir</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

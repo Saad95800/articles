@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un article{% endblock %}
+
+{% block body %}
+
+{% if notification is not null %}
+    <div class="alert {{type_notif}}">{{ notification }}</div>
+{% endif %}
+
+<div class="container">
+    <a href="{{ path('list_articles') }}" class="btn btn-light h-75">List</a>
+    <h3 class="pb-3 mb-4 font-italic border-bottom text-center">
+        {{ article.title }}
+    </h3>
+
+    <p>{{ article.body|raw }}</p>
+   
+
+</div>
+{% endblock body %}

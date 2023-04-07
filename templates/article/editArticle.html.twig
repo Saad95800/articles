@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un article{% endblock %}
+
+{% block body %}
+
+{{ app.session.set('notification', '') }}
+
+<div class="container">
+    <div class="d-flex justify-content-between">
+            <h1>Modifier un article</h1>
+            <a href="{{ path('list_articles') }}" class="btn btn-light h-75">List</a>
+    </div>
+    <div>
+        {{form(form)}}
+    </div>
+    <div>
+    <div>
+        {{ form_start(deleteForm)}}
+        {{ form_row(deleteForm.id_article, {value: article.id})}}
+        {{ form_row(deleteForm.submit)}}
+        {{ form_start(deleteForm)}}
+    </div>
+        
+    </div>
+</div>
+
+{% endblock %}

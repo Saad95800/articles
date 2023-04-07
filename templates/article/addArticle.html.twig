@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un article{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="d-flex justify-content-between">
+        <h1>Ajouter un article</h1>
+        <a href="{{ path('list_articles') }}" class="btn btn-light h-75">List</a>
+    </div>
+    <div>
+        {{form(form)}}
+    </div>
+</div>
+
+{% endblock %}
