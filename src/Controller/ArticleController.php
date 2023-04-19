@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class ArticleController extends AbstractController
 {
-    #[Route('/', name: 'list_articles')]
+    #[Route('/articles', name: 'list_articles')]
     public function index(ManagerRegistry $doctrine, Request $request): Response
     {
 
@@ -35,7 +35,7 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    #[Route('/add-article', name: 'add_article')]
+    #[Route('/article-add', name: 'add_article')]
     public function addArticle(Request $request, ManagerRegistry $doctrine): Response
     {
         $em = $doctrine->getManager();
@@ -65,7 +65,7 @@ class ArticleController extends AbstractController
 
     }
     
-    #[Route('/edit-article/{id_article}', name: 'edit_article')]
+    #[Route('/article-edit/{id_article}', name: 'edit_article')]
     public function editArticle($id_article, Request $request, ManagerRegistry $doctrine): Response
     {
         $em = $doctrine->getManager();
